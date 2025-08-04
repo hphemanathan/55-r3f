@@ -3,6 +3,7 @@ import React from 'react';
 import { useRef } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { useThree, extend, useFrame } from "@react-three/fiber";
+import CustomObject from '../CustomObject/CustomObject';
 extend({ OrbitControls });
 
 function Experience() {
@@ -24,10 +25,13 @@ function Experience() {
   return (
     <>
       <orbitControls args={[camera, gl.domElement]} />
+      <directionalLight position={[1, 2, 3]} intensity={4.5} />
+      <ambientLight intensity={1.5} />
+
       <group ref={groupRef}>
         <mesh position-x={-2}>
           <sphereGeometry />
-          <meshBasicMaterial color='orange' />
+          <meshStandardMaterial color='orange' />
         </mesh>
 
         <mesh
@@ -36,14 +40,15 @@ function Experience() {
           position-x={2}
           scale={1.5}>
           <boxGeometry />
-          <meshBasicMaterial color='mediumpurple' />
+          <meshStandardMaterial color='mediumpurple' />
         </mesh>
       </group>
 
       <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
         <planeGeometry />
-        <meshBasicMaterial color='greenyellow' />
+        <meshStandardMaterial color='greenyellow' />
       </mesh>
+      <CustomObject />
     </>
   );
 }
