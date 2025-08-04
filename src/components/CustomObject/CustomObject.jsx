@@ -31,7 +31,7 @@ function CustomObject() {
         />
       </bufferGeometry>
 
-      <meshStandardMaterial color='red' side={THREE.DoubleSide} />
+      <meshStandardMaterial color='green' side={THREE.DoubleSide} />
     </mesh>
   );
   
